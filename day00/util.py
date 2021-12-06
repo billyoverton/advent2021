@@ -60,6 +60,28 @@ class Point(object):
     def __hash__(self):
         return self.__str__().__hash__()
 
+class LineSegment(object):
+    def __init__(self, p1, p2):
+        assert isinstance(p1, Point), "Argument should be a point"
+        assert isinstance(p1, Point), "Argument should be a point"
+
+        self.p1 = p1
+        self.p2 = p2
+
+    def slope(self):
+        rise = (self.p2.y - self.p1.y)
+        run = (self.p2.x - self.p1.x)
+
+        if run == 0:
+            return math.nan
+        return rise/run
+
+    def __str__(self):
+        return "{0} -> {1}".format(self.p1, self.p2)
+
+    def __hash__(self):
+        return self.__str__().__hash__()
+        
 class Graph(object):
 
     def __init__(self):
