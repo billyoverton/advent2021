@@ -8,6 +8,15 @@ def min_max(l):
 def get_digit(number, n):
     return number // 10**n % 10
 
+def median(values):
+    sorted_values = sorted(values)
+    count = len(sorted_values)
+    middle = count // 2
+    if count % 2:
+        return sorted_values[middle]
+    else:
+        return sum(sorted_values[middle - 1:middle + 1]) / 2
+
 def init_grid(height, width, fill=None):
     grid = [[]] * (height)
     for y in range(height):
@@ -81,7 +90,7 @@ class LineSegment(object):
 
     def __hash__(self):
         return self.__str__().__hash__()
-        
+
 class Graph(object):
 
     def __init__(self):
